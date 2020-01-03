@@ -12,38 +12,49 @@
   <body>
     
   <div class ="container">
-    
-        
-        <div id="question-container" class="flex-center flex-column">
+
+        <div id="score/timer container">
+        <a class="highscorebtn" href="">Highscores</a>
+        <p class="timer">Time: </p>
+        </div>
+
+        <div id="quizinstructions">
+          <h1>Coding Quiz Challenge</h1>
+          <p>Try to answer the following code-related questions within the time limit.  
+            Keep in mind that incorrect answers will penalize your score time by ten seconds!</p>
+        </div>
+            
+        <div id="question-container" class="flex-center flex-column hide">
+          
           <div id="question">Question</div>
           <div class="choice-container">
           <p class="choice-prefix">1</p>
           <p class="choice-text">Choice 1</p>
-        </div>
+          </div>
          
-        <div class="choice-container">
+          <div class="choice-container">
           <p class="choice-prefix">2</p>
           <p class="choice-text">Choice 2</p>
-        </div>
+          </div>
     
-        <div class="choice-container">
+          <div class="choice-container">
           <p class="choice-prefix">3</p>
           <p class="choice-text">Choice 3</p>
-        </div>
+          </div>
 
-        <div class="choice-container">
+          <div class="choice-container">
           <p class="choice-prefix">4</p>
           <p class="choice-text">Choice 4</p>
+          </div>
         </div>
 
-        <div id="start">Start Quiz!</div>      
-        <p class="timer">Timer</p>
-        <a class="btn" href=" ">Highscores</a>
+          <div class="start">
+          <button id="start-btn" class="start-btn btn">Start Quiz!</button>
+          </div>
+           
+        </div>
     </div>
-
-
-      </div>
-    </div>
+      
   
 
  
