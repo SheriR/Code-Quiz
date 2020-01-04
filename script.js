@@ -1,7 +1,8 @@
 const startButton = document.getElementById('start-btn');
 const questionContainerElement = document.getElementById('question-container');
 const questionElement = document.getElementById('question');
-const choicesElement = document.getElementsByClassName('choice-text');
+const choices = Array.from(document.getElementsByClassName('choice-text'));
+console.log(choices);
 
 let shuffledQuestions, currentQuestionIndex
 
@@ -13,6 +14,8 @@ function startQuiz() {
     startButton.classList.add('hide')
     shuffledQuestions = questions.sort(() => Math.random() - .5)
     currentQuestionIndex = 0
+    score = 0
+    timer = 0
     questionContainerElement.classList.remove('hide')
     setNextQuestion()
  }
@@ -21,21 +24,14 @@ function setNextQuestion() {
     showQuestion(shuffledQuestions[currentQuestionIndex])
 }
 
-function showQuestion(question){
-    questionElement.innerText = question.question
-    question.choices.array.forEach( answer => {
-        const button = document.createElement('button')
-        button.innerText = choices.choices
-        button.classList.add('btn')
-
-        
+function showQuestion(question) {
+    questionElement.innerText = question.question;
+    question.choices.forEach(choice => {
+        const number = choice.dataset['number'];
+        choices.innerText = question['choice' + number];
     });
 
-}
+    
 
 
-
-function selectAnswer() {
-
-}
 
