@@ -10,7 +10,9 @@ const highscore = document.getElementById('highscores')
 var timeLeft; 
 var highScores; //(array);
 var Score;
-let shuffledQuestions, currentQuestionIndex
+var createDiv = document.createElement('div');
+let shuffledQuestions, currentQuestionIndex;
+let answer = questions.answer;
 
 
 // Start Quiz:
@@ -29,12 +31,6 @@ function startQuiz() {
 
 startButton.addEventListener('click', startQuiz)
 
-// Display Next Question:
-// 1 clear question.innerText
-// 2 display question
-// 2a use question index to get question text
-// 2b update question.innerText
-// 3 display buttons for answers using a for loop
 
 function displayQuestion(){
       showQuestion(shuffledQuestions[currentQuestionIndex])
@@ -60,31 +56,34 @@ function resetState(){
         answerButtonsElement.removeChild(answerButtonsElement.firstChild)
         }
     }
-
-
-    function selectAnswer(){
-
-    }
-    // if (choice.correct) {
-    // button.dataset.correct = answer.correct
-    // }
-    // 
-    // answerButtonsElement.appendChild(button)
- 
-
    
-    //   if (answer.correct) {
-    //     button.dataset.correct = answer.correct
-    //   }
-    //   button.addEventListener('click', selectAnswer)
-    //   answerButtonsElement.appendChild(button)
-    // }
-  
 
+    function selectAnswer(event){
+        var selectedButton = event.target;
 
+        console.log(selectedButton.textContent)
+
+        questionIndex = 0;
+
+    if (selectedButton.textContent = answer) {
+        var createDiv = document.createElement("div");
+        createDiv.setAttribute("id", "createDiv");
+
+        if (selectedButton.textContent === questions[questionIndex].answer){
+        createDiv.textContent = "Your answer is Correct!";
+        } 
+        else {
+            createDiv.textContent = "Wrong!  The correct asnwer is: " + questions[questionIndex].answer;
+        }
+    }
+}
 
 
     
+    //console.log(element.textContent)
+ 
+
+  
 
 // function startTimer() {
 //     time = 75;
