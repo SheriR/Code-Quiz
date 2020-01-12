@@ -15,28 +15,27 @@
 
         <div id="scoretimer-container">
         <a id="highscores" onclick="getScore()" href="#">High Scores</a>
-        <div id="timer">75</div><div id="time">Time:</div> 
+        <div id="timer">Time: </div> 
         </div>
 
         <div id="quizinstructions">
           <h1>Coding Quiz Challenge</h1>
           <p>Try to answer the following code-related questions within the time limit.  
-            Keep in mind that incorrect answers will penalize your score time by ten seconds!</p>
+            Keep in mind that incorrect answers will penalize your score time by 15 seconds!</p>
         </div>
-            
-        <div id="quiz-container" class="hide">
-            <div id="question"></div>
-            <div id="choices">
-              <div class="choice" id="A" onclick="checkAnswer('A')"></div>
-              <div class="choice" id="B" onclick="checkAnswer('B')"></div>
-              <div class="choice" id="C" onclick="checkAnswer('C')"></div>
-              <div class="choice" id="D" onclick="checkAnswer('D')"></div>
-            </div> 
-            <div id="notifycorrect" class="hide" style="color: #00ff26;">You are CORRECT!</div> <!--notify correct answers-->
-            <div id="notifywrong" class="hide" style="color: red;">Wrong Answer...</div> <!--notify wrong answers-->
-          </div>   
-                 
 
+        <div class="quiz-container">
+            <div id="question-container" class="hide">
+              <div id="question">Question</div>
+              <div id="answer-buttons" class="btn-grid">
+                <button class="btn">Answer 1</button>
+                <button class="btn">Answer 2</button>
+                <button class="btn">Answer 3</button>
+                <button class="btn">Answer 4</button>
+              </div>
+            </div>
+            </div>
+            
           <div id="start">
           <button id="start-btn" class="start-btn btn">Start Quiz!</button>
           </div>
@@ -44,13 +43,9 @@
         </div>
     </div>
       
-  
+      <script src="./assets/questions.js"></script>
+      <script src="./assets/script.js"></script>
 
- 
-
-  <script src="./assets/javascript3.js"></script>
-  <!--<script src="./assets/questions.js"></script>
-  
 </body>
 </html>
 

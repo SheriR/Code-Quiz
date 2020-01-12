@@ -1,47 +1,32 @@
 let questions = [
   {    
     question: "Commonly used data types DO NOT include?",
-    choiceA: "strings",
-    choiceB: "booleans",
-    choiceC: "alerts",
-    choiceD: "numbers",
-    correct: "C", //"alerts"
+    choices: ["strings", "booleans", "alerts", "numbers"],
+    answer: "alerts"
   },
   
   {
     question: "The condition in an if / else statement is enclosed within ____?",
-    choiceA: "quotes",
-    choiceB: "curly brackets",
-    choiceC: "parentheses",
-    choiceD: "square brackets",
-    correct: "C", //"parentheses"
+    choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
+    answer: "parentheses"
   },
 
   {
     question: "Arrays in JavaScript can be used to store ______?",
-    choiceA: "numbers and strings",
-    choiceB: "other Arrays",
-    choiceC: "booleans",
-    choiceD: "all of the above",
-    correct: "D", //"all of the above"
+    choices: ["numbers and strings", "other Arrays","booleans", "all of the above"],
+    answer: "all of the above"
   },
 
   {
     question: "String values must be enclosed within ______ when being assinged to variables?",
-    choiceA: "commas",
-    choiceB: "curly brackets",
-    choiceC: "quotes",
-    choiceD: "parentheses",
-    correct: "C", //"quotes"
+    choices: ["commas", "curly brackets", "quotes", "parentheses"],
+    answer: "quotes"
   },
 
   {
     question: "What does JS stand for?",
-    choiceA: "Just Saying",
-    choiceB: "JavaStyle",
-    choiceC: "JavaScript",
-    choiceD: "JScript",
-    correct: "C", //JavaScript
+    choices: ["Just Saying", "JavaStyle", "JavaScript", "JScript"],
+    anwer: "JavaScript"
  
   }
   
