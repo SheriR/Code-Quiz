@@ -14,4 +14,4 @@ Score is calculated by time remaining. Answering quickly and correctly results i
 
 When time runs out and/or all questions are answered, the user is presented with their final score and asked to enter their initials. Their final score and initials are then stored in localStorage.
 
-The live page link is:
+The live page link is: https://sherir.github.io/Code-Quiz/
