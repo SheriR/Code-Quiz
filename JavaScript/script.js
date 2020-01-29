@@ -9,10 +9,10 @@ const highscore = document.getElementById('highscores')
 // variables
 var timeLeft; 
 var highScores; //(array);
-var Score;
+let numberCorrect;
 var createDiv = document.createElement('div');
 let shuffledQuestions, currentQuestionIndex;
-let answer = questions.answer;
+let answer; 
 
 
 // Start Quiz:
@@ -38,18 +38,23 @@ function displayQuestion(){
 
 function showQuestion(question) {
     questionElement.innerText = question.question 
-
-    resetState()
+    
+    resetState() //this removes text Answer 1, Answer 2, etc... in html
+   
     question.choices.forEach(choice => {
     const button = document.createElement('button')
     button.innerText = choice
     button.classList.add('btn')
-    console.log(choice)
     
     answerButtonsElement.appendChild(button)
     button.addEventListener('click', selectAnswer)
+    
+
+    console.log(choice)  //this logs choices that can be selected
+    
     })  
 }; 
+
 
 function resetState(){       
         while (answerButtonsElement.firstChild) {
@@ -57,33 +62,28 @@ function resetState(){
         }
     }
    
-
-    function selectAnswer(event){
+    
+function selectAnswer(event){
         var selectedButton = event.target;
-
-        console.log(selectedButton.textContent)
-
+        console.log(selectedButton.textContent) //this logs what the user selected
+        answer = selectedButton.textcontent
         questionIndex = 0;
+     
 
-    if (selectedButton.textContent = answer) {
+if (answer === questions[currentQuestionIndex.answer]) {
         var createDiv = document.createElement("div");
-        createDiv.setAttribute("id", "createDiv");
-
-        if (selectedButton.textContent === questions[questionIndex].answer){
         createDiv.textContent = "Your answer is Correct!";
-        } 
-        else {
-            createDiv.textContent = "Wrong!  The correct asnwer is: " + questions[questionIndex].answer;
+     } 
+        
+    else {
+         createDiv.textContent = "Wrong!  The correct asnwer is: " + questions[questionIndex].answer;
         }
     }
-}
+  
 
 
     
-    //console.log(element.textContent)
  
-
-  
 
 // function startTimer() {
 //     time = 75;
@@ -105,11 +105,3 @@ function setScore() {
     localStorage.setItem("highscoreName",  document.getElementById('name').value);
     getScore();
 }
-
-
-
-
-   
-
-
-
