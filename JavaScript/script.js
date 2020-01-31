@@ -1,13 +1,38 @@
+// The user arrives at the landing page and is presented with a call-to-action to "Start Quiz." 
+//Also note the navigation option to "View Highscores" and the "Time" value set at 0.
+
+// Clicking the "Start Quiz" button presents the user with a series of questions. The timer is initialized with a value and immediately begins countdown.
+
+// Score is calculated by time remaining. Answering quickly and correctly results in a higher score. 
+//Answering incorrectly results in a time penalty (for example, 15 seconds are subtracted from time remaining.
+
+// When time runs out and/or all questions are answered, the user is presented with their final score and asked to enter their initials. 
+//Their final score and initials are then stored in localStorage.
+
+
+
+// If a question is answered incorrectly, additional time is subtracted from the timer.
+
+// The timer stops when all questions have been answered or the timer reaches 0.
+
+// After the game ends, the user can save their initials and score to a highscores view using local storage
+
+
+
+
+
 const startButton = document.getElementById('start-btn');
 const questionContainerElement = document.getElementById('question-container');
 const questionElement = document.getElementById('question');
 const answerButtonsElement = document.getElementById('answer-buttons');
 //const timer = document.getElementById('timer')
 const highscore = document.getElementById('highscores')
-let timeLeft = 75
+let timeLeft = 75;
+var score = 0;
+let penalty = 15;
 
 function timer(){
-    var sec = 20;
+    var sec = 75;
     var timer = setInterval(function(){
         document.getElementById('timer').innerHTML='00:'+sec;
         sec--;
@@ -17,28 +42,6 @@ function timer(){
     }, 1000);
 }
 
-// function timerFunction(){
-//     setInterval(function(){
-//         timeleft = timeLeft - 1
-//         timeLeft -= 1
-// if (timeLeft <= 0) {
-//             clearInterval(timer);
-//             endGame()
-
-//     }, 1000)
-// }
-// }
-
-// function startTimer() {
-//     time = 75;
-//     time = setInterval(function(){
-//         timeLeft--;
-//         if (timeLeft <= 0) {
-//             clearInterval(timer);
-//             endGame()
-//         }, 1000)
-//     }
-// }
 
 
 var highScores; //(array);
@@ -51,7 +54,7 @@ let answer;
 // Start Quiz:
 // 1 Hide everything unnecessary - done
 // 2 Display the first question - done
-// 3 start timer
+// 3 start timer - done
 
 function startQuiz() {
     console.log('start game', questions)
@@ -89,61 +92,46 @@ function showQuestion(question) {
     })  
 }; 
 
-
 function resetState(){       
         while (answerButtonsElement.firstChild) {
         answerButtonsElement.removeChild(answerButtonsElement.firstChild)
         }
     }
-
-
-   
-    
-function selectAnswer(event){
-        // var selectedButton = event.target;
-        // console.log(selectedButton.textContent) //this logs what the user selected
-        // answer = selectedButton.textcontent
-        // questionIndex = 0;
+ 
+  
+function selectAnswer(event){        
         let answer = event.srcElement.innerHTML
+        var score = 0;
+        let penalty = -15
+        currentQuestionIndex++
+        
         if(answer === questions[currentQuestionIndex].answer){
+            //createDiv.setAttribute("id", "createDiv");
+            //createDiv.textContent = "You are Correct!"
             alert("You are correct")
-            currentQuestionIndex++
+            score++
+          
             showQuestion(questions[currentQuestionIndex])
         } else {
+            //createDiv.setAttribute("id", "createDiv");
+            //createDiv.textContent = "You are not Correct!"
             alert("Incorrect")
-            currentQuestionIndex++
+            timeLeft = timeLeft - penalty           
             showQuestion(questions[currentQuestionIndex])
         }
-     
-
-// if (answer === questions[currentQuestionIndex.answer]) {
-//         var createDiv = document.createElement("div");
-//         createDiv.textContent = "Your answer is Correct!";
-//      } 
-        
-//     else {
-//          createDiv.textContent = "Wrong!  The correct asnwer is: " + questions[currentQuestionIndex].answer;
-//         }
-//     }
     }
-
-
     
- 
+    
+   if (currentQuestionIndex > 4) {
+    alert("Game Over")
+    endGame()
+}
+[console.log(currentQuestionIndex)]
 
-// function startTimer() {
-//     time = 75;
-//     time = setInterval(function(){
-//         timeLeft--;
-//         if (timeLeft <= 0) {
-//             clearInterval(timer);
-//             endGame()
-//         }
-//     }
-// };
-
+     
 function endGame(){
     clearInterval(timer);
+    setScore();
 }
 
 function setScore() {
